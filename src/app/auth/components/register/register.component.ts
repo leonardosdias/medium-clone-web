@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { registerAction } from '../../store/actions';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { IAppState } from 'src/app/shared/types/app-state.interface';
+import { AuthService } from '../../services/auth.service';
+import { registerAction } from '../../store/actions/register.actions';
+import { isSubmittingSelector } from '../../store/selectors/selectors';
+import { IRegisterRequest } from '../../types/register-request.interface';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +15,21 @@ import { registerAction } from '../../store/actions';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
+  isSubmittings$: Observable<boolean>;
 
   constructor(
     private formBuilder: FormBuilder,
-    private store: Store
+    private store: Store<IAppState>,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.initializeForm();
+    this.initializeValues();
+  }
+
+  initializeValues(): void {
+    this.isSubmittings$ = this.store.pipe(select(isSubmittingSelector));
   }
 
   initializeForm(): void {
@@ -29,8 +41,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value, this.form.valid);
-    this.store.dispatch(registerAction(this.form.value));
+    const request: IRegisterRequest = {
+      user: this.form.value
+    };
+    this.store.dispatch(registerAction({ request }));
   }
 
 }

@@ -1,4 +1,4 @@
-export interface ICurrentUserInterface {
+export interface ICurrentUser {
     id: number;
     email: string;
     username: string;

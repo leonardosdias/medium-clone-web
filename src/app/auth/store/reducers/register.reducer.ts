@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { IAuthState } from "../types/auth-state.inferface";
-import { registerAction } from "./actions";
+import { IAuthState } from "../../types/auth-state.inferface";
+import { registerAction } from "../actions/register.actions";
 
 const initialState: IAuthState = {
     isSubmitting: false
@@ -9,11 +9,11 @@ const initialState: IAuthState = {
 const authReducer = createReducer(
     initialState,
     on(
-        registerAction, 
+        registerAction,
         (state: IAuthState) => ({
-        ...state,
-        isSubmitting: true
-    }))
+            ...state,
+            isSubmitting: true
+        }))
 );
 
 export function reducers(state: IAuthState, action: Action) {
