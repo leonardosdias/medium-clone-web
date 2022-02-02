@@ -1,4 +1,4 @@
-import { IAuthState } from "src/app/auth/types/auth-state.inferface";
+import { IAuthState } from "src/app/modules/auth/types/auth-state.inferface";
 
 export interface IAppState {
     auth: IAuthState

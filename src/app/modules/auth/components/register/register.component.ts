@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IAppState } from 'src/app/shared/types/app-state.interface';
-import { AuthService } from '../../services/auth.service';
+import { IAPIErrors } from 'src/app/shared/types/api-errors.interface';
 import { registerAction } from '../../store/actions/register.actions';
-import { isSubmittingSelector } from '../../store/selectors/selectors';
+import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors/selectors';
 import { IRegisterRequest } from '../../types/register-request.interface';
 
 @Component({
@@ -16,11 +16,11 @@ import { IRegisterRequest } from '../../types/register-request.interface';
 export class RegisterComponent implements OnInit {
   form: FormGroup;
   isSubmittings$: Observable<boolean>;
+  apiErrors$: Observable<IAPIErrors | null>;
 
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<IAppState>,
-    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
 
   initializeValues(): void {
     this.isSubmittings$ = this.store.pipe(select(isSubmittingSelector));
+    this.apiErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   initializeForm(): void {
