@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from './store/effects/register.effect';
 import { APIErrorMessagesModule } from '../../shared/modules/api-error-messages/api-error-messages.module';
+import { PersistenceService } from 'src/app/shared/services/persistence.service';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     APIErrorMessagesModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    PersistenceService
   ]
 })
 
