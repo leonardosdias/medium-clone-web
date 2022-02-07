@@ -7,27 +7,23 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers/register.reducer';
 import { AuthService } from './services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
-import { RegisterEffect } from './store/effects/register.effect';
+import { RegisterEffect } from './store/effects/register/register.effect';
 import { APIErrorMessagesModule } from '../../shared/modules/api-error-messages/api-error-messages.module';
 import { PersistenceService } from 'src/app/shared/services/persistence.service';
-
-const routes: Routes = [
-  {
-    path: 'register',
-    component: RegisterComponent
-  }
-];
-
+import { LoginEffect } from 'src/app/modules/auth/store/effects/login/login.effect';
+import { LoginComponent } from './components/login/login.component';
+import { AuthRoutingModule } from 'src/app/modules/auth/auth-routing.module';
 @NgModule({
   declarations: [
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
     ReactiveFormsModule,
+    AuthRoutingModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
     APIErrorMessagesModule
   ],
   providers: [

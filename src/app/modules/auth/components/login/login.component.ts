@@ -4,16 +4,16 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IAppState } from 'src/app/shared/types/app-state.interface';
 import { IAPIErrors } from 'src/app/shared/types/api-errors.interface';
-import { registerAction } from '../../store/actions/register/register.actions';
+import { loginAction } from '../../store/actions/login/login.actions';
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors/selectors';
-import { IRegisterRequest } from '../../types/register-request.interface';
+import { ILoginRequest } from '../../types/login-request.interface';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class LoginComponent implements OnInit {
   form: FormGroup;
   isSubmittings$: Observable<boolean>;
   apiErrors$: Observable<IAPIErrors | null>;
@@ -35,17 +35,16 @@ export class RegisterComponent implements OnInit {
 
   initializeForm(): void {
     this.form = this.formBuilder.group({
-      username: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
-    const request: IRegisterRequest = {
+    const request: ILoginRequest = {
       user: this.form.value
     };
-    this.store.dispatch(registerAction({ request }));
+    this.store.dispatch(loginAction({ request }));
   }
 
 }
