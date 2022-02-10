@@ -4,7 +4,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/reducers/register.reducer';
+import { reducers } from './store/reducers/auth.reducer';
 import { AuthService } from './services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from './store/effects/register/register.effect';
@@ -13,6 +13,7 @@ import { PersistenceService } from 'src/app/shared/services/persistence.service'
 import { LoginEffect } from 'src/app/modules/auth/store/effects/login/login.effect';
 import { LoginComponent } from './components/login/login.component';
 import { AuthRoutingModule } from 'src/app/modules/auth/auth-routing.module';
+import { GetCurrentUserEffect } from './store/effects/user/get-current-user.effect';
 @NgModule({
   declarations: [
     RegisterComponent,
@@ -23,7 +24,13 @@ import { AuthRoutingModule } from 'src/app/modules/auth/auth-routing.module';
     ReactiveFormsModule,
     AuthRoutingModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature(
+      [
+        RegisterEffect,
+        LoginEffect,
+        GetCurrentUserEffect
+      ]
+    ),
     APIErrorMessagesModule
   ],
   providers: [
