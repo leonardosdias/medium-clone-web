@@ -12,7 +12,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { APIErrorMessagesModule } from './shared/modules/api-error-messages/api-error-messages.module';
 import { TopBarModule } from './shared/modules/topbar/topbar.module';
 import { PersistenceService } from './shared/services/persistence.service';
-import { AuthInterceptor } from './modules/auth/services/auth.interceptor';
+import { AuthInterceptor } from './modules/auth/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
