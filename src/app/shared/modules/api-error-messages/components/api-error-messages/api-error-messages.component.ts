@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IAPIErrors } from 'src/app/shared/types/api-errors.interface';
+import { IAPIErrors } from 'src/app/shared/interfaces/api-errors.interface';
 
 @Component({
   selector: 'app-api-error-messages',

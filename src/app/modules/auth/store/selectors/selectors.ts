@@ -1,5 +1,5 @@
 import { createSelector } from "@ngrx/store";
-import { IAppState } from "src/app/shared/types/app-state.interface";
+import { IAppState } from "src/app/shared/interfaces/app-state.interface";
 import { IAuthState } from "../../types/auth-state.inferface";
 
 export const authFeatureSelector = (

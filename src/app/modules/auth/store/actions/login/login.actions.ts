@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
-import { IAPIErrors } from "src/app/shared/types/api-errors.interface";
-import { ICurrentUser } from "src/app/shared/types/current-user.interface";
+import { IAPIErrors } from "src/app/shared/interfaces/api-errors.interface";
+import { ICurrentUser } from "src/app/shared/interfaces/current-user.interface";
 import { ILoginRequest } from "../../../types/login-request.interface";
 import { ActionTypes } from "../types/action-types";
 
