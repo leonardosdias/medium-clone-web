@@ -13,6 +13,7 @@ import { APIErrorMessagesModule } from './shared/modules/api-error-messages/api-
 import { TopBarModule } from './shared/modules/topbar/topbar.module';
 import { PersistenceService } from './shared/services/persistence.service';
 import { AuthInterceptor } from './modules/auth/interceptors/auth.interceptor';
+import { GlobalFeedModule } from './modules/global-feed/global-feed.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AuthInterceptor } from './modules/auth/interceptors/auth.interceptor';
     AuthModule,
     APIErrorMessagesModule,
     TopBarModule,
+    GlobalFeedModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
