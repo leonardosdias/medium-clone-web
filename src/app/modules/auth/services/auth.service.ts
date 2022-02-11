@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ICurrentUser } from 'src/app/shared/interfaces/current-user.interface';
-import { IRegisterRequest } from '../types/register-request.interface';
+import { IRegisterRequest } from '../interfaces/register-request.interface';
 import { environment } from 'src/environments/environment';
-import { IAuthResponse } from '../types/auth-response.interface';
-import { ILoginRequest } from '../types/login-request.interface';
+import { IAuthResponse } from '../interfaces/auth-response.interface';
+import { ILoginRequest } from '../interfaces/login-request.interface';
 
 @Injectable({
   providedIn: 'root'

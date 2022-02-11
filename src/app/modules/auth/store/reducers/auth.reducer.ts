@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { IAuthState } from "../../types/auth-state.inferface";
+import { IAuthState } from "../../interfaces/auth-state.inferface";
 import { loginAction, loginFailureAction, loginSuccessAction } from "../actions/login/login.actions";
 import { registerAction, registerFailureAction, registerSuccessAction } from "../actions/register/register.actions";
 import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from "../actions/user/get-current-user.action";

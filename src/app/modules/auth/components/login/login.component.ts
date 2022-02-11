@@ -6,7 +6,7 @@ import { IAppState } from 'src/app/shared/interfaces/app-state.interface';
 import { IAPIErrors } from 'src/app/shared/interfaces/api-errors.interface';
 import { loginAction } from '../../store/actions/login/login.actions';
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors/selectors';
-import { ILoginRequest } from '../../types/login-request.interface';
+import { ILoginRequest } from '../../interfaces/login-request.interface';
 
 @Component({
   selector: 'app-login',
