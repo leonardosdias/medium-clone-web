@@ -8,12 +8,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './modules/auth/auth.module';
+import { AuthModule } from './core/modules/auth/auth.module';
 import { APIErrorMessagesModule } from './shared/modules/api-error-messages/api-error-messages.module';
 import { TopBarModule } from './shared/modules/topbar/topbar.module';
 import { PersistenceService } from './shared/services/persistence.service';
-import { AuthInterceptor } from './modules/auth/interceptors/auth.interceptor';
-import { GlobalFeedModule } from './modules/global-feed/global-feed.module';
+import { AuthInterceptor } from './core/modules/auth/interceptors/auth.interceptor';
+import { GlobalFeedModule } from './core/modules/global-feed/global-feed.module';
 
 @NgModule({
   declarations: [
