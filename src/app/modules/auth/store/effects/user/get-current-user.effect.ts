@@ -6,7 +6,7 @@ import { PersistenceService } from "src/app/shared/services/persistence.service"
 import { ICurrentUser } from "src/app/shared/interfaces/current-user.interface";
 import { AuthService } from "../../../services/auth.service";
 
-import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from "../../actions/user/get-current-user.action";
+import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from "../../actions/user/get-current-user.actions";
 
 @Injectable()
 export class GetCurrentUserEffect {

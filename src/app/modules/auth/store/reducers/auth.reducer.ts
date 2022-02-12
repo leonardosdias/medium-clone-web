@@ -2,7 +2,7 @@ import { Action, createReducer, on } from "@ngrx/store";
 import { IAuthState } from "../../interfaces/auth-state.inferface";
 import { loginAction, loginFailureAction, loginSuccessAction } from "../actions/login/login.actions";
 import { registerAction, registerFailureAction, registerSuccessAction } from "../actions/register/register.actions";
-import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from "../actions/user/get-current-user.action";
+import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from "../actions/user/get-current-user.actions";
 
 const initialState: IAuthState = {
     isSubmitting: false,
@@ -91,6 +91,6 @@ const authReducer = createReducer(
     )
 );
 
-export function reducers(state: IAuthState, action: Action) {
+export function authReducers(state: IAuthState, action: Action) {
     return authReducer(state, action);
 }

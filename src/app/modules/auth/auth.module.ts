@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './components/register/register.component';
-import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/reducers/auth.reducer';
+import { authReducers } from './store/reducers/auth.reducer';
 import { AuthService } from './services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from './store/effects/register/register.effect';
@@ -23,7 +22,7 @@ import { GetCurrentUserEffect } from './store/effects/user/get-current-user.effe
     CommonModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    StoreModule.forFeature('auth', reducers),
+    StoreModule.forFeature('auth', authReducers),
     EffectsModule.forFeature(
       [
         RegisterEffect,

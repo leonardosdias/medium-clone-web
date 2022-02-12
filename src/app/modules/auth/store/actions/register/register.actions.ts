@@ -2,19 +2,19 @@ import { createAction, props } from "@ngrx/store";
 import { IAPIErrors } from "src/app/shared/interfaces/api-errors.interface";
 import { ICurrentUser } from "src/app/shared/interfaces/current-user.interface";
 import { IRegisterRequest } from "../../../interfaces/register-request.interface";
-import { ActionTypes } from "../types/action-types";
+import { AuthActionTypes } from "../types/auth-action-types";
 
 export const registerAction = createAction(
-    ActionTypes.REGISTER,
+    AuthActionTypes.REGISTER,
     props<{ request: IRegisterRequest }>()
 );
 
 export const registerSuccessAction = createAction(
-    ActionTypes.REGISTER_SUCCESS,
+    AuthActionTypes.REGISTER_SUCCESS,
     props<{ currentUser: ICurrentUser }>()
 );
 
 export const registerFailureAction = createAction(
-    ActionTypes.REGISTER_FAILURE,
+    AuthActionTypes.REGISTER_FAILURE,
     props<{ errors: IAPIErrors }>()
 );
