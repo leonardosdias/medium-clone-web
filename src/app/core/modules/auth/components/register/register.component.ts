@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { IAppState } from 'src/app/shared/interfaces/app-state.interface';
 import { IAPIErrors } from 'src/app/shared/interfaces/api-errors.interface';
 import { registerAction } from '../../store/actions/register/register.actions';
-import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors/selectors';
+import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors/auth-selectors';
 import { IRegisterRequest } from '../../interfaces/register-request.interface';
 
 @Component({
