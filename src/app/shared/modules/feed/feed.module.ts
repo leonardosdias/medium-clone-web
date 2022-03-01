@@ -8,6 +8,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { GetFeedEffect } from './store/effects/get-feed.effect';
 import { StoreModule } from '@ngrx/store';
 import { feedReducers } from './store/reducers/feed.reducer';
+import { BannerModule } from '../banner/banner.module';
+import { ErrorMessageModule } from '../error-message/error-message.module';
+import { LoadingModule } from '../loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { feedReducers } from './store/reducers/feed.reducer';
   imports: [
     CommonModule,
     FeedRoutingModule,
+    BannerModule,
+    ErrorMessageModule,
+    LoadingModule,
     StoreModule.forFeature('feed', feedReducers),
     EffectsModule.forFeature([GetFeedEffect])
   ],
