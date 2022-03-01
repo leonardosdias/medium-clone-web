@@ -11,6 +11,7 @@ import { feedReducers } from './store/reducers/feed.reducer';
 import { BannerModule } from '../banner/banner.module';
 import { ErrorMessageModule } from '../error-message/error-message.module';
 import { LoadingModule } from '../loading/loading.module';
+import { PaginationModule } from '../pagination/pagination.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { LoadingModule } from '../loading/loading.module';
     BannerModule,
     ErrorMessageModule,
     LoadingModule,
+    PaginationModule,
     StoreModule.forFeature('feed', feedReducers),
     EffectsModule.forFeature([GetFeedEffect])
   ],
