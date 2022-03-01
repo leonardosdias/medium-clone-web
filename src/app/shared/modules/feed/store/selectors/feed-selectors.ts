@@ -8,7 +8,7 @@ export const feedFeatureSelector = (
 
 export const isLoadingFeedSelector = createSelector(
     feedFeatureSelector,
-    (feedState: IFeedState) => feedState.isLoadding
+    (feedState: IFeedState) => feedState.isLoading
 );
 
 export const feedErrorSelector = createSelector(

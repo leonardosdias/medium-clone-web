@@ -4,7 +4,7 @@ import { getFeedAction, getFeedFailureAction, getFeedSuccessAction } from "../ac
 
 const initialState: IFeedState = {
     data: null,
-    isLoadding: false,
+    isLoading: false,
     error: null,
 };
 
@@ -14,14 +14,14 @@ const feedReducer = createReducer(
         getFeedAction,
         (state): IFeedState => ({
             ...state,
-            isLoadding: true,
+            isLoading: true,
         })
     ),
     on(
         getFeedSuccessAction,
         (state, action): IFeedState => ({
             ...state,
-            isLoadding: true,
+            isLoading: false,
             data: action.feed
         })
     ),
@@ -29,7 +29,7 @@ const feedReducer = createReducer(
         getFeedFailureAction,
         (state): IFeedState => ({
             ...state,
-            isLoadding: false,
+            isLoading: false,
         })
     ),
 );
