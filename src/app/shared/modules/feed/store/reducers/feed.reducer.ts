@@ -1,3 +1,4 @@
+import { routerNavigatedAction } from "@ngrx/router-store";
 import { Action, createReducer, on } from "@ngrx/store";
 import { IFeedState } from "../../interfaces/feed-state.interface";
 import { getFeedAction, getFeedFailureAction, getFeedSuccessAction } from "../actions/feed/feed.actions";
@@ -32,8 +33,9 @@ const feedReducer = createReducer(
             isLoading: false,
         })
     ),
+    on(routerNavigatedAction, (): IFeedState => initialState)
 );
 
-export function feedReducers(state: IFeedState, action: Action) {
-    return feedReducer(state, action);
+export function feedReducers(stateFeed: IFeedState, action: Action) {
+    return feedReducer(stateFeed, action);
 }

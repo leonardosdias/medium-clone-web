@@ -2,16 +2,18 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
+import { stringify, parseUrl } from 'query-string';
+
 import { environment } from 'src/environments/environment';
 import { IGetFeedResponse } from '../../interfaces/get-feed-response.interface';
 import { getFeedAction } from '../../store/actions/feed/feed.actions';
 import { feedErrorSelector, feedDataSelector, isLoadingFeedSelector } from '../../store/selectors/feed-selectors';
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
+
 export class FeedComponent implements OnInit, OnDestroy {
   @Input('apiUrl') apiUrlProps: string;
 
@@ -32,17 +34,17 @@ export class FeedComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initializeValues();
     this.initializeListeners();
-    this.getFeedArticles();
   }
 
   ngOnDestroy(): void {
-      this.queryParamsSubscription.unsubscribe();
+    this.queryParamsSubscription.unsubscribe();
   }
 
   initializeListeners() {
     this.queryParamsSubscription = this.activatedRoute.queryParams.subscribe(
       (params: Params) => {
-        this.currentPage = Number(params.page  || '1');
+        this.currentPage = Number(params.page || '1');
+        this.getFeedArticles();
       }
     );
   }
@@ -55,7 +57,18 @@ export class FeedComponent implements OnInit, OnDestroy {
   }
 
   getFeedArticles(): void {
-    this.store.dispatch(getFeedAction({ url: this.apiUrlProps }));
-  }
+    const offset = this.currentPage * this.limit - this.limit;
+    const parsedUrl = parseUrl(this.apiUrlProps);
+    const stringFieldParams = stringify(
+      {
+        limit: this.limit,
+        offset,
+        ...parsedUrl.query
+      }
+    );
 
+    const apiUrlWithParams = `${parsedUrl.url}?${stringFieldParams}`;
+
+    this.store.dispatch(getFeedAction({ url: apiUrlWithParams }));
+  }
 }
