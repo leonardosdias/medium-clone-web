@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FeedRoutingModule } from './feed-routing.module';
@@ -12,6 +12,7 @@ import { BannerModule } from '../banner/banner.module';
 import { ErrorMessageModule } from '../error-message/error-message.module';
 import { LoadingModule } from '../loading/loading.module';
 import { PaginationModule } from '../pagination/pagination.module';
+import { TagListModule } from '../tag-list/tag-list.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PaginationModule } from '../pagination/pagination.module';
     ErrorMessageModule,
     LoadingModule,
     PaginationModule,
+    TagListModule,
     StoreModule.forFeature('feed', feedReducers),
     EffectsModule.forFeature([GetFeedEffect])
   ],
@@ -32,6 +34,9 @@ import { PaginationModule } from '../pagination/pagination.module';
   ],
   providers: [
     FeedService
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class FeedModule { }
