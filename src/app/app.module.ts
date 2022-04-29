@@ -16,6 +16,7 @@ import { AuthInterceptor } from './core/modules/auth/interceptors/auth.intercept
 import { GlobalFeedModule } from './core/modules/global-feed/global-feed.module';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { YourFeedModule } from './core/modules/your-feed/your-feed.module';
+import { TagFeedModule } from './core/modules/tag-feed/tag-feed.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { YourFeedModule } from './core/modules/your-feed/your-feed.module';
     TopBarModule,
     GlobalFeedModule,
     YourFeedModule,
+    TagFeedModule,
     StoreModule.forRoot({ router: routerReducer }),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([]),
