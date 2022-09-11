@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IArticle, IGetArticleResponse } from 'src/app/shared/interfaces/article.interface';
+import { IArticle, IGetArticleResponse } from 'src/app/core/modules/article/interfaces/article.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,10 +16,11 @@ export class ArticleService {
 
   getArticle(slug: string): Observable<IArticle | IGetArticleResponse> {
     const fullUrl = `${environment.apiUrl}/articles/${slug}`;
-    return this.http.get<IGetArticleResponse>(fullUrl).pipe(
-      map((response: IGetArticleResponse) => {
-        return response.article;
-      })
-    )
+    return this.http.get<IGetArticleResponse>(fullUrl)
+      .pipe(
+        map((response: IGetArticleResponse) => {
+          return response.article;
+        })
+      )
   }
 }

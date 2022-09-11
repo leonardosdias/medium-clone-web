@@ -1,4 +1,4 @@
-import { IArticle } from "src/app/shared/interfaces/article.interface";
+import { IArticle } from "src/app/core/modules/article/interfaces/article.interface";
 
 export interface IGetFeedResponse {
     articles: IArticle[];

@@ -7,7 +7,7 @@ import { stringify, parseUrl } from 'query-string';
 import { environment } from 'src/environments/environment';
 import { IGetFeedResponse } from '../../interfaces/get-feed-response.interface';
 import { getFeedAction } from '../../store/actions/feed/feed.actions';
-import { feedErrorSelector, feedDataSelector, isLoadingFeedSelector } from '../../store/selectors/feed-selectors';
+import { feedErrorSelector, feedDataSelector, isLoadingFeedSelector } from '../../store/selectors/feed.selector';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',

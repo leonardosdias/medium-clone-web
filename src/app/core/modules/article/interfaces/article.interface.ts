@@ -1,5 +1,5 @@
-import { TPolularTag } from "./popular-tag.types";
-import { IProfile } from "./profile.interface";
+import { TPolularTag } from "../../../../shared/interfaces/popular-tag.types";
+import { IProfile } from "../../../../shared/interfaces/profile.interface";
 
 export interface IArticle {
     id: string,
