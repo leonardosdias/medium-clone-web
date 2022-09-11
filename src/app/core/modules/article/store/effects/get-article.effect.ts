@@ -14,19 +14,20 @@ export class GetArticleEffect {
         private articleService: ArticleService,
     ) { }
 
-    getArticle$ = createEffect(() => this.actions$.pipe(
-        ofType(getArticleAction),
-        switchMap(({ slug }) => {
-            return this.articleService.getArticle(slug)
-                .pipe(
-                    map((article: IGetArticleResponse) => {
-                        return getArticleSuccessAction({ article });
-                    })
-                )
-        }),
+    getArticle$ = createEffect(() => this.actions$
+        .pipe(
+            ofType(getArticleAction),
+            switchMap(({ slug }) => {
+                return this.articleService.getArticle(slug)
+                    .pipe(
+                        map((article: IGetArticleResponse) => {
+                            return getArticleSuccessAction({ article });
+                        })
+                    )
+            }),
 
-        catchError(() => {
-            return of(getArticleFailureAction());
-        })
-    ));
+            catchError(() => {
+                return of(getArticleFailureAction());
+            })
+        ));
 }

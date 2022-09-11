@@ -14,8 +14,8 @@ export class ArticleService {
     private http: HttpClient
   ) { }
 
-  getArticle(url: string): Observable<IArticle> {
-    const fullUrl = `${environment.apiUrl}/articles/${url}`;
+  getArticle(slug: string): Observable<IArticle | IGetArticleResponse> {
+    const fullUrl = `${environment.apiUrl}/articles/${slug}`;
     return this.http.get<IGetArticleResponse>(fullUrl).pipe(
       map((response: IGetArticleResponse) => {
         return response.article;
