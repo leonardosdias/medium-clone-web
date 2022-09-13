@@ -1,5 +1,5 @@
 <div class="article-page">
-    <div class="banner"> 
+    <div class="banner">
         <div class="container" *ngIf="article">
             <h1>{{article.title}}</h1>
             <div class="article-meta">
@@ -16,9 +16,11 @@
                 </div>
                 <span *ngIf="isAuthor$ | async">
                     <a [routerLink]="['/articles', article?.slug, '/edit']" class="btn btn-outline-sencondary btn-sm">
-                        <i class="ion-edit">Edit Article</i>
+                        <i class="ion-edit">Editar Artigo</i>
                     </a>
-                    BOTÃO DELETAR
+                    <button class="btn btn-outline-danger btn-sm" (click)="deleteArticle()">
+                        Deletar Artigo
+                    </button>
                 </span>
             </div>
         </div>

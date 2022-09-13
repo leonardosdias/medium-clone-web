@@ -10,6 +10,7 @@ import { articleReducers } from './store/reducers/article.reducer';
 import { LoadingModule } from 'src/app/shared/modules/loading/loading.module';
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
+import { DeletetArticleEffect } from './store/effects/delete-article.effect';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
     ErrorMessageModule,
     TagListModule,
     StoreModule.forFeature('article', articleReducers),
-    EffectsModule.forFeature([GetArticleEffect])
+    EffectsModule.forFeature([GetArticleEffect, DeletetArticleEffect])
   ],
   providers: [
     ArticleService

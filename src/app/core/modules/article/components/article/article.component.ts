@@ -5,8 +5,9 @@ import { combineLatest, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ICurrentUser } from 'src/app/shared/interfaces/current-user.interface';
 import { currentUserSelector } from '../../../auth/store/selectors/auth-selectors';
-import { IArticle, IGetArticleResponse } from '../../interfaces/article.interface';
+import { IArticle } from '../../interfaces/article.interface';
 import { getArticleAction } from '../../store/actions/article/article.actions';
+import { deleteArticleAction } from '../../store/actions/article/delete-article.actions';
 import { articleDataSelector, articleErrorSelector, isLoadingArticleSelector } from '../../store/selectors/article.selector';
 
 @Component({
@@ -76,4 +77,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
     )
   }
 
+  deleteArticle(): void {
+    this.store.dispatch(deleteArticleAction({ slug: this.slug }));
+  }
 }
