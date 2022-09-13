@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { of } from "rxjs";
 import { catchError, map, switchMap } from "rxjs/operators";
-import { IGetArticleResponse } from "src/app/core/modules/article/interfaces/article.interface";
+import { IArticle } from "src/app/core/modules/article/interfaces/article.interface";
 
 import { ArticleService } from "../../services/article.service";
 import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } from "../actions/article/article.actions";
@@ -20,7 +20,7 @@ export class GetArticleEffect {
             switchMap(({ slug }) => {
                 return this.articleService.getArticle(slug)
                     .pipe(
-                        map((article: IGetArticleResponse) => {
+                        map((article: IArticle) => {
                             return getArticleSuccessAction({ article });
                         })
                     )

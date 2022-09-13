@@ -17,6 +17,7 @@ import { GlobalFeedModule } from './core/modules/global-feed/global-feed.module'
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { YourFeedModule } from './core/modules/your-feed/your-feed.module';
 import { TagFeedModule } from './core/modules/tag-feed/tag-feed.module';
+import { ArticleModule } from './core/modules/article/article.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TagFeedModule } from './core/modules/tag-feed/tag-feed.module';
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    ArticleModule,
     StoreModule.forRoot({ router: routerReducer }),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([]),
