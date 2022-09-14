@@ -11,10 +11,12 @@ import { LoadingModule } from 'src/app/shared/modules/loading/loading.module';
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
 import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
 import { DeletetArticleEffect } from './store/effects/delete-article.effect';
+import { CreateArticleComponent } from './components/create-article/create-article.component';
 
 @NgModule({
   declarations: [
-    ArticleComponent
+    ArticleComponent,
+    CreateArticleComponent
   ],
   imports: [
     CommonModule,
