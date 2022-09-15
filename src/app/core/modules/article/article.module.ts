@@ -12,6 +12,7 @@ import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-m
 import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
 import { DeletetArticleEffect } from './store/effects/delete-article.effect';
 import { CreateArticleComponent } from './components/create-article/create-article.component';
+import { FormCreateArticleModule } from 'src/app/shared/modules/form-create-article/form-create-article.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CreateArticleComponent } from './components/create-article/create-artic
     LoadingModule,
     ErrorMessageModule,
     TagListModule,
+    FormCreateArticleModule,
     StoreModule.forFeature('article', articleReducers),
     EffectsModule.forFeature([GetArticleEffect, DeletetArticleEffect])
   ],

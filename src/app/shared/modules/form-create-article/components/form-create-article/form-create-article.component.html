@@ -1,1 +1,36 @@
-<p>form-create-article works!</p>
+<div class="editor-page">
+    <div class="container-page">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-cs-12">
+                <app-error-message *ngIf="errorsProps" [messageProps]="errorsProps"></app-error-message>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Título do Artigo"
+                                formControlName="title" />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Assunto do seu Artigo"
+                                formControlName="description" />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <textarea class="form-control form-control-lg" rows="8"
+                                placeholder="Escreva seu artigo (em markdown)" formControlName="body"></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Digite as tags"
+                                formControlName="tagList" />
+                        </fieldset>
+                        <fieldset>
+                            <button class="btn btn-lg pull-xs-right btn-primary"
+                                [disabled]="form.invalid || isSubmittingProps">
+                                Publicar
+                            </button>
+                        </fieldset>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

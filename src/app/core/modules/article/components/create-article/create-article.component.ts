@@ -7,11 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CreateArticleComponent implements OnInit {
+  initialValues = {
+    title: 'Teste',
+    description: 'Teste',
+    body: 'Teste',
+    tagList: ['1']
+  }
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log('ss')
+  ngOnInit(): void { }
+
+  onSubmit(res: any) {
+    console.log(res);
   }
 
 }
