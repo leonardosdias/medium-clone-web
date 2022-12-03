@@ -36,7 +36,7 @@ export class ArticleService {
     const fullUrl = `${environment.apiUrl}/articles`;
 
     return this.http
-      .post<ISaveArticleResponse>(fullUrl, articleInput)
+      .post<ISaveArticleResponse>(fullUrl, {article: articleInput})
       .pipe(
         map((response: ISaveArticleResponse) => {
           return response.article
