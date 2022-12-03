@@ -1,5 +1,12 @@
 <app-form-create-article 
-[initialValues]="initialValues"
-[isSubmitting]="false"
-(articleSubmit)="onSubmit($event)"
-></app-form-create-article>
+    [initialValues]="initialValues"
+    [isSubmitting]="isSubmitting$ | async"
+    [errors]="apiErrors$ | async"
+    (articleSubmit)="onSubmit($event)"
+>
+<div>
+    <!-- <p>{{isSubmitting$ | async}}</p>
+    <p>{{apiErrors$ | async}}</p> -->
+
+</div>
+</app-form-create-article>

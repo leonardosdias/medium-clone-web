@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { IArticleInput } from 'src/app/shared/modules/form-create-article/interfaces/article-input.interface';
+import { IAPIErrors } from 'src/app/shared/interfaces/api-errors.interface';
+import { isSubmittingCreateArticleSelector, validationErrorsCreateArticleErrorSelector } from '../../store/selectors/create-article.selector';
+import { createArticleAction } from '../../store/actions/article/create-article.actions';
 
 @Component({
   selector: 'app-create-article',
@@ -7,19 +13,30 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CreateArticleComponent implements OnInit {
-  initialValues = {
-    title: 'Teste',
-    description: 'Teste',
-    body: 'Teste',
-    tagList: ['1']
+  initialValues: IArticleInput = {
+    title: '',
+    description: '',
+    body: '',
+    tagList: []
   }
 
-  constructor() { }
+  isSubmitting$: Observable<boolean>;
+  apiErrors$: Observable<IAPIErrors | null>;
 
-  ngOnInit(): void { }
+  constructor(
+    private store: Store
+  ) { }
 
-  onSubmit(res: any) {
-    console.log(res);
+  ngOnInit(): void {
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingCreateArticleSelector));
+
+    this.apiErrors$ = this.store.pipe(select(validationErrorsCreateArticleErrorSelector));
+  }
+
+  onSubmit(articleInput: IArticleInput): void {
+    console.log('initialValues create-article: ', this.initialValues)
+    this.store.dispatch(createArticleAction({ articleInput }));
+    console.log(articleInput)
   }
 
 }

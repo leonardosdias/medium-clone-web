@@ -1,4 +1,4 @@
-import { IArticle, IGetArticleResponse } from "./article.interface";
+import { IArticle } from "./article.interface";
 
 export interface IArticleState {
     isLoading: boolean;

@@ -1,15 +1,15 @@
 import { createAction, props } from "@ngrx/store";
-import { ArticleActionTypes } from "../types/article-actions.types";
+import { DeleteArticleActionTypes } from "../types/delete-article-actions.types";
 
 export const deleteArticleAction = createAction(
-    ArticleActionTypes.DELETE_ARTICLE,
+    DeleteArticleActionTypes.DELETE_ARTICLE,
     props<{ slug: string }>()
 );
 
 export const deleteArticleSuccessAction = createAction(
-    ArticleActionTypes.DELETE_ARTICLE_SUCCESS,
+    DeleteArticleActionTypes.DELETE_ARTICLE_SUCCESS,
 );
 
 export const deleteArticleFailureAction = createAction(
-    ArticleActionTypes.DELETE_ARTICLE_FAILURE
+    DeleteArticleActionTypes.DELETE_ARTICLE_FAILURE
 );

@@ -24,19 +24,21 @@ export class FormCreateArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    console.log('initialValuesProps form create component: ', this.initialValuesProps)
   }
 
   initializeForm(): void {
     this.form = this.formBuilder.group({
-      title: [null || this.initialValuesProps?.title, [Validators.required]],
-      description: [null || this.initialValuesProps?.description, [Validators.required]],
-      body: [null || this.initialValuesProps?.body, [Validators.required]],
-      tagList: [null || this.initialValuesProps?.tagList.join(' '), [Validators.required]]
+      title: [this.initialValuesProps?.title, [Validators.required]],
+      description: [this.initialValuesProps?.description, [Validators.required]],
+      body: [this.initialValuesProps?.body, [Validators.required]],
+      tagList: [this.initialValuesProps?.tagList.join(' '), [Validators.required]]
     });
   }
 
   onSubmit(): void {
     this.articleSubmitEvent.emit(this.form.value);
+    console.log('value form create-article: ', this.form.value)
   }
 
 }

@@ -5,7 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { GetArticleEffect } from './store/effects/get-article.effect';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticleRoutingModule } from './article.routing.module';
-import { StoreModule } from '@ngrx/store';
+import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { articleReducers } from './store/reducers/article.reducer';
 import { LoadingModule } from 'src/app/shared/modules/loading/loading.module';
 import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-message.module';
@@ -13,6 +13,20 @@ import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
 import { DeletetArticleEffect } from './store/effects/delete-article.effect';
 import { CreateArticleComponent } from './components/create-article/create-article.component';
 import { FormCreateArticleModule } from 'src/app/shared/modules/form-create-article/form-create-article.module';
+import { CreateArticleEffect } from './store/effects/create-article.effect';
+import { createArticleReducers } from './store/reducers/create-article.reducer';
+import { IArticleState } from './interfaces/article-state.interface';
+import { ICreateArticleState } from './interfaces/create-article.interface';
+
+interface IReducersArticleState {
+  article: IArticleState,
+  createArticle: ICreateArticleState
+}
+
+export const reducers: ActionReducerMap<IReducersArticleState> = {
+  article: articleReducers,
+  createArticle: createArticleReducers
+};
 
 @NgModule({
   declarations: [
@@ -26,8 +40,12 @@ import { FormCreateArticleModule } from 'src/app/shared/modules/form-create-arti
     ErrorMessageModule,
     TagListModule,
     FormCreateArticleModule,
-    StoreModule.forFeature('article', articleReducers),
-    EffectsModule.forFeature([GetArticleEffect, DeletetArticleEffect])
+    StoreModule.forFeature('article', reducers),
+    EffectsModule.forFeature([
+      GetArticleEffect, 
+      DeletetArticleEffect, 
+      CreateArticleEffect
+    ])
   ],
   providers: [
     ArticleService
