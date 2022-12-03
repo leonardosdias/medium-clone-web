@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticleService } from './services/article.service';
 import { EffectsModule } from '@ngrx/effects';
@@ -12,11 +12,13 @@ import { ErrorMessageModule } from 'src/app/shared/modules/error-message/error-m
 import { TagListModule } from 'src/app/shared/modules/tag-list/tag-list.module';
 import { DeletetArticleEffect } from './store/effects/delete-article.effect';
 import { CreateArticleComponent } from './components/create-article/create-article.component';
-import { FormCreateArticleModule } from 'src/app/shared/modules/form-create-article/form-create-article.module';
 import { CreateArticleEffect } from './store/effects/create-article.effect';
 import { createArticleReducers } from './store/reducers/create-article.reducer';
 import { IArticleState } from './interfaces/article-state.interface';
 import { ICreateArticleState } from './interfaces/create-article.interface';
+import { FormCreateArticleComponent } from './components/form-create-article/form-create-article.component';
+import { APIErrorMessagesModule } from 'src/app/shared/modules/api-error-messages/api-error-messages.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 interface IReducersArticleState {
   article: IArticleState,
@@ -31,15 +33,17 @@ export const reducers: ActionReducerMap<IReducersArticleState> = {
 @NgModule({
   declarations: [
     ArticleComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    FormCreateArticleComponent
   ],
   imports: [
     CommonModule,
     ArticleRoutingModule,
     LoadingModule,
     ErrorMessageModule,
+    ReactiveFormsModule,
     TagListModule,
-    FormCreateArticleModule,
+    APIErrorMessagesModule,
     StoreModule.forFeature('article', reducers),
     EffectsModule.forFeature([
       GetArticleEffect, 
@@ -49,7 +53,10 @@ export const reducers: ActionReducerMap<IReducersArticleState> = {
   ],
   providers: [
     ArticleService
-  ]
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
 })
 
 export class ArticleModule { }

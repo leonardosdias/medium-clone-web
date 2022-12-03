@@ -38,5 +38,4 @@ export class FormCreateArticleComponent implements OnInit {
   onSubmit(): void {
     this.articleSubmitEvent.emit(this.form.value);
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IArticleInput } from 'src/app/shared/modules/form-create-article/interfaces/article-input.interface';
+import { IArticleInput } from 'src/app/core/modules/article/interfaces/article-input.interface';
 import { IAPIErrors } from 'src/app/shared/interfaces/api-errors.interface';
 import { isSubmittingCreateArticleSelector, validationErrorsCreateArticleErrorSelector } from '../../store/selectors/create-article.selector';
 import { createArticleAction } from '../../store/actions/article/create-article.actions';

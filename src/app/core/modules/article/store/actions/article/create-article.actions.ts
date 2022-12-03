@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { IAPIErrors } from "src/app/shared/interfaces/api-errors.interface";
-import { IArticleInput } from "src/app/shared/modules/form-create-article/interfaces/article-input.interface";
+import { IArticleInput } from "src/app/core/modules/article/interfaces/article-input.interface";
 import { IArticle } from "../../../interfaces/article.interface";
 import { CreateArticleActionTypes } from "../types/create-article-actions.types";
 
