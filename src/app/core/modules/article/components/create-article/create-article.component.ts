@@ -34,9 +34,7 @@ export class CreateArticleComponent implements OnInit {
   }
 
   onSubmit(articleInput: IArticleInput): void {
-    console.log('initialValues create-article: ', this.initialValues)
     this.store.dispatch(createArticleAction({ articleInput }));
-    console.log(articleInput)
   }
 
 }

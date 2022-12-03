@@ -35,6 +35,6 @@ const createArticleReducer = createReducer(
 
 export function createArticleReducers(state: ICreateArticleState, action: Action) {
     // console.log('state: ', state)
-    // console.log('action: ', action.type)
+    // console.log('action: ', action)
     return createArticleReducer(state, action);
 }

@@ -24,7 +24,6 @@ export class FormCreateArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    console.log('initialValuesProps form create component: ', this.initialValuesProps)
   }
 
   initializeForm(): void {
@@ -38,7 +37,6 @@ export class FormCreateArticleComponent implements OnInit {
 
   onSubmit(): void {
     this.articleSubmitEvent.emit(this.form.value);
-    console.log('value form create-article: ', this.form.value)
   }
 
 }
