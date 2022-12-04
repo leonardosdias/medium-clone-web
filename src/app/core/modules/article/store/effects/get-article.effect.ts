@@ -5,7 +5,7 @@ import { catchError, map, switchMap } from "rxjs/operators";
 import { IArticle } from "src/app/core/modules/article/interfaces/article.interface";
 
 import { ArticleService } from "../../services/article.service";
-import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } from "../actions/article/article.actions";
+import { getArticleAction, getArticleFailureAction, getArticleSuccessAction } from "../actions/article/get-article.actions";
 
 @Injectable()
 export class GetArticleEffect {

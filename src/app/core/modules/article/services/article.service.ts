@@ -10,6 +10,7 @@ import { ISaveArticleResponse } from '../interfaces/save-article-response.interf
 @Injectable({
   providedIn: 'root'
 })
+
 export class ArticleService {
 
   constructor(
@@ -36,7 +37,19 @@ export class ArticleService {
     const fullUrl = `${environment.apiUrl}/articles`;
 
     return this.http
-      .post<ISaveArticleResponse>(fullUrl, {article: articleInput})
+      .post<ISaveArticleResponse>(fullUrl, { article: articleInput })
+      .pipe(
+        map((response: ISaveArticleResponse) => {
+          return response.article
+        })
+      );
+  }
+
+  updateArticle(slug: string, articleInput: IArticleInput): Observable<IArticle> {
+    const fullUrl = `${environment.apiUrl}/articles/${slug}`;
+
+    return this.http
+      .put<ISaveArticleResponse>(fullUrl, { article: articleInput })
       .pipe(
         map((response: ISaveArticleResponse) => {
           return response.article

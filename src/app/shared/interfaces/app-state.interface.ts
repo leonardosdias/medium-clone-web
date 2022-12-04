@@ -1,5 +1,6 @@
 import { IArticleState } from "src/app/core/modules/article/interfaces/article-state.interface";
 import { ICreateArticleState } from "src/app/core/modules/article/interfaces/create-article.interface";
+import { IUpdateArticleState } from "src/app/core/modules/article/interfaces/update-article.interface";
 import { IAuthState } from "src/app/core/modules/auth/interfaces/auth-state.inferface";
 import { IFeedState } from "../modules/feed/interfaces/feed-state.interface";
 import { IPopularTagsState } from "../modules/popular-tags/interfaces/popular-tags-state.interface";
@@ -10,4 +11,5 @@ export interface IAppState {
     article: IArticleState;
     popularTags: IPopularTagsState;
     createArticle: ICreateArticleState;
+    updateArticle: IUpdateArticleState;
 };
