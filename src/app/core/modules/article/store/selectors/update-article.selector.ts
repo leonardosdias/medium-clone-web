@@ -3,7 +3,7 @@ import { IAppState } from "src/app/shared/interfaces/app-state.interface";
 import { IUpdateArticleState } from "../../interfaces/update-article.interface";
 
 export const updateArticleFeatureSelector = (
-    (state: IAppState) => state.createArticle
+    (state: IAppState) => state.updateArticle
 );
 
 export const getArticleSelector = createSelector(
@@ -13,7 +13,7 @@ export const getArticleSelector = createSelector(
 
 export const isLoadingArticleSelector = createSelector(
     updateArticleFeatureSelector,
-    (articleState: IUpdateArticleState) => articleState.isLoading
+    (updateArticleState: IUpdateArticleState) => updateArticleState.isLoading
 );
 
 export const isSubmittingCreateArticleSelector = createSelector(
